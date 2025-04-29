@@ -1,0 +1,51 @@
+practica 1 modulo 2
+
+
+paso 1: actualizar repositorios del sistema
+sudo dnf update -y
+
+paso 2: actualizar paquetes instalados en versiones mas recientes 
+sudo dnf upgrade -y
+
+paso 3: ver repositorios en uso del sitema
+sudo dnf repolist
+sudo dnf repolist all (ver todos los repositorios habilitados y desabilitados)
+
+paso 4: ver herramientas si estan instaladas
+sudo dnf search ej: <nmap>, <bashtop>
+
+paso 5: instalar git para clonar repositorio
+sudo dnf install git -y
+
+paso 6: ver version
+git --version
+
+paso 7: clonar repositorio
+git clone + "repositorio"  https://github.com/aristocratos/bashtop.git
+
+paso 8: ir al bashtop
+cd bashtop
+
+paso 9: luego hacer un make install
+sudo make install
+
+paso 10: ejecutar 
+./bashtop (./ esto ejecuta), (recordar que debe tener permisos de ejecucion <700>)
+
+paso 11: proceder a desinstalar o eliminar 
+rm -rf + lo que queremos borrar (la 'f' es para forzar y evitar cuadro de dialogo)
+
+paso 12: eliminar dependencias asociadas
+sudo dnf autoremove
+
+
+
+
+ 
+
+
+
+
+
+
+
