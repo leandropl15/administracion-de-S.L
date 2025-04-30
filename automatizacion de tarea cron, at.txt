@@ -1,0 +1,45 @@
+practica 2  del modulo 2 automatización de tareas (cron,at)
+
+1. automatizar una tarea con cron para actualizar el sistema las tardes a las 11 p.m
+
+paso 1: ver como funciona crontab usando un editor de texto
+sudo nano /etc/crontab 
+(/etc/crontab indica la ruta seria los mismo que hacer cd etc/ y luego nano crontab)
+
+paso 2: ingresar a crontab (cron) con editor de texto para empezar a configurar
+crontab  -e 
+(tecla insertar para poder escribir)
+(para salir y guarda :wq)
+
+paso 3: empezar a crear nuestra tarea 
+# actualizar sistema todas las tardes a las 11 p.m
+0 23 * * * dnf update -y 
+
+paso 4: ver la tarea de crontab
+crontab -l
+
+
+2. programar la maquina para que reinicie los lunes a 3 a.m
+
+paso 1: entrar nuevamente a cron
+crontab -e 
+
+paso 2: configurar el archivo de cron agregar la nueva tarea
+#reiniciar maquina los lunea a las 3 a.m
+0 3 * * 1 /sbin/shutdown -r now
+
+3. crear una tarea para eliminar contenido de una carpeta dentro de 1 minuto
+
+paso 1: ver los archivos temporales 
+cd /tmp
+ls
+
+paso 2: programar la tarea con at 
+echo 'rm -rf /tmp*' | at now + 1 minute
+atq (comando para ver la tarea programada)
+
+paso 3: comprobar que se ejecuto la tarea
+cd /tmp
+ls
+
+
