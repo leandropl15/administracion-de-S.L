@@ -1,0 +1,85 @@
+trabajando con scripts en Linux
+#script para crear un archivo que indique el dia mes a;o hora y minuto 
+
+
+paso 1: crear el script
+nano backup.sh  (tiene que tener como extension "sh" ya que es un script)
+
+paso 2:configurar nuestro script 
+(esto indica que estaremos utilizando un interprete de bash)
+#!/bin/bash 
+
+#definir directorio
+DIREECTORIO="/home/usuario"
+
+#obtener fechas
+FECHA_HORA=$(date +"%d-%m-%y_%H-%M")
+
+#nombre del archivo
+NOMBRE_BACKUP="backup_$FECHA_HORA.tar.gz"
+
+#crear archivo
+tar -czvf $NOMBRE_BACKUP $DIRECTORIO
+
+#dar permisos de ejecucion a nuestro script
+chmod +x + nombre del script
+chmod 700 + nombre del script
+
+#ejecutar el script
+./ + nombre del script
+
+#descomprimir el tar.gz (opcional)
+tar -xzvf + nombre del tar.gz
+
+
+2 script 
+#configurar script con ifconfig para ver nuestra configuracion de red
+
+paso 1:crear nuestro script
+nano red.sh
+
+paso 2: configurar el script
+#!/bin/bash
+
+#preguntar por el nombre
+echo "dime que te gustaria asignar"
+read NOMBRE_ARCHIVO
+
+#definir ruta
+ESCRITORIO="indicar la ruta"
+
+#crear el archivo
+ARCHIVO="$ESCRITORIO/$NOMBRE_ARCHIVO.txt"
+
+#ejecutable
+ifconfig > $ARCHIVO
+
+#mensaje (opcional)
+echo "el resultado ifconfig se a guardado en $ARCHIVO"
+
+paso 3:dar permisos de ejecucion
+chmod +x + nombre del script
+chmod 700 + nombre del script
+
+paso 4:ejecutar el script
+./ + nombre del script
+
+paso 5:comprobar resultado utilizando cat
+cat + la ruta dada luego de la ejecucion del script
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
